@@ -79,8 +79,11 @@ Ten plik jest automatycznie generowany przez npm i zawiera dokładne wersje zain
 Instalacja :
 
 Sklonuj repozytorium:
--git clone 
+
+-git clone
+
 WAŻNE
+
 Po sklonowaniu, aby uruchomić ten projekt należy zainstalować:
 
 -Pobieranie MongoDB https://www.mongodb.com/try/download/community i zainstaluj go.
