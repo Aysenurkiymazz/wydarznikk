@@ -1,56 +1,56 @@
-System organizacji wydarzeñ 
+System organizacji wydarzeÅ„ 
 
 1. Opis projektu:
 
-Projekt System organizacji i  wydarzeñ  ma na celu stworzenie platformy, która pozwala u¿ytkownikom przegl¹daæ wydarzenia, tworzyæ, edytowaæ i usuwaæ nowe wydarzenia, a tak¿e listê goœci, która pokazuje, kto mo¿e uczestniczyæ w wydarzeniach. 
+Projekt System organizacji i  wydarzeÅ„  ma na celu stworzenie platformy, ktÃ³ra pozwala uÅ¼ytkownikom przeglÄ…daÄ‡ wydarzenia, tworzyÄ‡, edytowaÄ‡ i usuwaÄ‡ nowe wydarzenia, a takÅ¼e listÄ™ goÅ›ci, ktÃ³ra pokazuje, kto moÅ¼e uczestniczyÄ‡ w wydarzeniach. 
 
 *Funkcje
--Tworzenie nowych wydarzeñ
--Edycja szczegó³ów wydarzenia
--Zapraszanie goœci
--Monitorowanie postêpu wydarzenia
--Usuwanie organizacji zdarzeñ
+-Tworzenie nowych wydarzeÅ„
+-Edycja szczegÃ³Å‚Ã³w wydarzenia
+-Zapraszanie goÅ›ci
+-Monitorowanie postÄ™pu wydarzenia
+-Usuwanie organizacji zdarzeÅ„
 
 2. Rejestracja i autoryzacja:
 
-Nowi u¿ytkownicy bêd¹ mogli za³o¿yæ konto,Zalogowani u¿ytkownicy bêd¹ równie¿ mogli tworzyæ wydarzenia i organizacje, dodawaæ daty, listy goœci, edytowaæ i usuwaæ je, wprowadzaj¹c swoje dane.
+Nowi uÅ¼ytkownicy bÄ™dÄ… mogli zaÅ‚oÅ¼yÄ‡ konto,Zalogowani uÅ¼ytkownicy bÄ™dÄ… rÃ³wnieÅ¼ mogli tworzyÄ‡ wydarzenia i organizacje, dodawaÄ‡ daty, listy goÅ›ci, edytowaÄ‡ i usuwaÄ‡ je, wprowadzajÄ…c swoje dane.
 
-3.Dodaj now¹ organizacjê i wydarzenie:
+3.Dodaj nowÄ… organizacjÄ™ i wydarzenie:
 
-Zarejestrowani u¿ytkownicy mog¹ dodaæ nowe wydarzenie i organizacjê.Dodawanie organizacji i wydarzenia, nazwy wydarzenia, daty wydarzenia i listy goœci.
+Zarejestrowani uÅ¼ytkownicy mogÄ… dodaÄ‡ nowe wydarzenie i organizacjÄ™.Dodawanie organizacji i wydarzenia, nazwy wydarzenia, daty wydarzenia i listy goÅ›ci.
 
-4.Edytowaæ i usuwaæ organizacje i wydarzenia :
+4.EdytowaÄ‡ i usuwaÄ‡ organizacje i wydarzenia :
 
-Zarejestrowani u¿ytkownicy bêd¹ mogli modyfikowaæ i usuwaæ zaplanowane wydarzenia.Zmieniaæ, aktualizowaæ i ca³kowicie usuwaæ dane organizacji i wydarzeñ.
+Zarejestrowani uÅ¼ytkownicy bÄ™dÄ… mogli modyfikowaÄ‡ i usuwaÄ‡ zaplanowane wydarzenia.ZmieniaÄ‡, aktualizowaÄ‡ i caÅ‚kowicie usuwaÄ‡ dane organizacji i wydarzeÅ„.
 
-5.Przegl¹danie wydarzeñ i organizacji :
+5.PrzeglÄ…danie wydarzeÅ„ i organizacji :
 
-Przegl¹daæ wydarzenia i organizacje, u¿ytkownicy bêd¹ mogli przegl¹daæ zaplanowane wydarzenia.
+PrzeglÄ…daÄ‡ wydarzenia i organizacje, uÅ¼ytkownicy bÄ™dÄ… mogli przeglÄ…daÄ‡ zaplanowane wydarzenia.
 
-W skrócie System i  organizacji wydarzeñ pozwala u¿ytkownikom tworzyæ, usuwaæ, zarz¹dzaæ i monitorowaæ ró¿ne wydarzenia. U¿ytkownicy mog¹ zapraszaæ goœci i œledziæ ich udzia³.
+W skrÃ³cie System i  organizacji wydarzeÅ„ pozwala uÅ¼ytkownikom tworzyÄ‡, usuwaÄ‡, zarzÄ…dzaÄ‡ i monitorowaÄ‡ rÃ³Å¼ne wydarzenia. UÅ¼ytkownicy mogÄ… zapraszaÄ‡ goÅ›ci i Å›ledziÄ‡ ich udziaÅ‚.
 
-6.U¿yte technologie:
+6.UÅ¼yte technologie:
 
 app.js
-Jest to g³ówny punkt wejœcia aplikacji. Konfiguruje serwer Express, ³¹czy siê z baz¹ danych MongoDB za pomoc¹ Mongoose.
+Jest to gÅ‚Ã³wny punkt wejÅ›cia aplikacji. Konfiguruje serwer Express, Å‚Ä…czy siÄ™ z bazÄ… danych MongoDB za pomocÄ… Mongoose.
 
 user.js
-Definiuje schemat danych u¿ytkownika w MongoDB przy u¿yciu Mongoose. 
+Definiuje schemat danych uÅ¼ytkownika w MongoDB przy uÅ¼yciu Mongoose. 
 
 event.js
-Definiuje schemat danych zdarzeñ w MongoDB przy u¿yciu Mongoose. 
+Definiuje schemat danych zdarzeÅ„ w MongoDB przy uÅ¼yciu Mongoose. 
 
 authController.js
-Zawiera logikê uwierzytelniania i autoryzacji u¿ytkowników.
+Zawiera logikÄ™ uwierzytelniania i autoryzacji uÅ¼ytkownikÃ³w.
 
 /eventController.js
-Zawiera logikê zarz¹dzania zdarzeniami.
+Zawiera logikÄ™ zarzÄ…dzania zdarzeniami.
 
 authRoutes.js
-Definiuje trasy zwi¹zane z uwierzytelnianiem u¿ytkowników (logowanie, rejestracja, wylogowanie).
+Definiuje trasy zwiÄ…zane z uwierzytelnianiem uÅ¼ytkownikÃ³w (logowanie, rejestracja, wylogowanie).
 
 routes/eventRoutes.js
-Definiuje trasy zwi¹zane z zarz¹dzaniem zdarzeniami (przegl¹danie, tworzenie, aktualizacja, usuwanie zdarzeñ).
+Definiuje trasy zwiÄ…zane z zarzÄ…dzaniem zdarzeniami (przeglÄ…danie, tworzenie, aktualizacja, usuwanie zdarzeÅ„).
 
 login.ejs
 Szablon EJS dla strony logowania.
@@ -59,37 +59,43 @@ views/register.ejs
 Szablon EJS dla strony rejestracji. 
 
 views/events.ejs
-Szablon EJS dla strony wydarzeñ.
+Szablon EJS dla strony wydarzeÅ„.
 
 views/editEvent.ejs
-Szablon EJS do edycji istniej¹cego wydarzenia.
+Szablon EJS do edycji istniejÄ…cego wydarzenia.
 
 views/newEvent.ejs
 Szablon EJS do tworzenia nowego wydarzenia.
 
 public/css/styles.css
-(Opcjonalnie) Plik CSS do stylizacji szablonów EJS.
+(Opcjonalnie) Plik CSS do stylizacji szablonÃ³w EJS.
 
 package.json
-Ten plik zawiera metadane dotycz¹ce projektu oraz listê zale¿noœci i skryptów projektu.
+Ten plik zawiera metadane dotyczÄ…ce projektu oraz listÄ™ zaleÅ¼noÅ›ci i skryptÃ³w projektu.
 
 package-lock.json
-Ten plik jest automatycznie generowany przez npm i zawiera dok³adne wersje zainstalowanych zale¿noœci
+Ten plik jest automatycznie generowany przez npm i zawiera dokÅ‚adne wersje zainstalowanych zaleÅ¼noÅ›ci
 
 Instalacja :
 
 Sklonuj repozytorium:
 -git clone 
-WA¯NE
-Po sklonowaniu, aby uruchomiæ ten projekt nale¿y zainstalowaæ:
+WAÅ»NE
+Po sklonowaniu, aby uruchomiÄ‡ ten projekt naleÅ¼y zainstalowaÄ‡:
 
 -Pobieranie MongoDB https://www.mongodb.com/try/download/community i zainstaluj go.
-*Aby uruchomiæ aplikacjê, nale¿y zainstalowaæ dodatkowe paczki:
+
+*Aby uruchomiÄ‡ aplikacjÄ™, naleÅ¼y zainstalowaÄ‡ dodatkowe paczki:
+
 -npm init -y
+
 -npm install express mongoose body-parser express-session helmet bcrypt ejs
+
 -npm install --save-dev nodemon
-*Po zainstalowaniu paczek, uruchom aplikacjê za pomoc¹ polecenia:
+
+*Po zainstalowaniu paczek, uruchom aplikacjÄ™ za pomocÄ… polecenia:
+
 -npm start
 
-Aplikacja bêdzie dostêpna pod adresem :
+Aplikacja bÄ™dzie dostÄ™pna pod adresem :
 http://localhost:3000
