@@ -6,9 +6,13 @@ Projekt System organizacji i  wydarzeń  ma na celu stworzenie platformy, która
 
 *Funkcje
 -Tworzenie nowych wydarzeń
+
 -Edycja szczegółów wydarzenia
+
 -Zapraszanie gości
+
 -Monitorowanie postępu wydarzenia
+
 -Usuwanie organizacji zdarzeń
 
 2. Rejestracja i autoryzacja:
@@ -32,48 +36,63 @@ W skrócie System i  organizacji wydarzeń pozwala użytkownikom tworzyć, usuwa
 6.Użyte technologie:
 
 app.js
+
 Jest to główny punkt wejścia aplikacji. Konfiguruje serwer Express, łączy się z bazą danych MongoDB za pomocą Mongoose.
 
 user.js
+
 Definiuje schemat danych użytkownika w MongoDB przy użyciu Mongoose. 
 
 event.js
+
 Definiuje schemat danych zdarzeń w MongoDB przy użyciu Mongoose. 
 
 authController.js
+
 Zawiera logikę uwierzytelniania i autoryzacji użytkowników.
 
 /eventController.js
+
 Zawiera logikę zarządzania zdarzeniami.
 
 authRoutes.js
+
 Definiuje trasy związane z uwierzytelnianiem użytkowników (logowanie, rejestracja, wylogowanie).
 
 routes/eventRoutes.js
+
 Definiuje trasy związane z zarządzaniem zdarzeniami (przeglądanie, tworzenie, aktualizacja, usuwanie zdarzeń).
 
 login.ejs
+
 Szablon EJS dla strony logowania.
 
 views/register.ejs
+
 Szablon EJS dla strony rejestracji. 
 
 views/events.ejs
+
 Szablon EJS dla strony wydarzeń.
 
 views/editEvent.ejs
+
 Szablon EJS do edycji istniejącego wydarzenia.
 
 views/newEvent.ejs
+
 Szablon EJS do tworzenia nowego wydarzenia.
 
 public/css/styles.css
+
 (Opcjonalnie) Plik CSS do stylizacji szablonów EJS.
 
 package.json
+
 Ten plik zawiera metadane dotyczące projektu oraz listę zależności i skryptów projektu.
 
 package-lock.json
+
 Ten plik jest automatycznie generowany przez npm i zawiera dokładne wersje zainstalowanych zależności
 
 Instalacja :
