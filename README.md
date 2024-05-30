@@ -121,3 +121,12 @@ Po sklonowaniu, aby uruchomić ten projekt należy zainstalować:
 
 Aplikacja będzie dostępna pod adresem :
 http://localhost:3000
+
+
+
+https://github.com/Aysenurkiymaz/System-Organizacji-Wydarze-poprawka-/assets/147588960/c0d2bff2-9837-4416-93e9-60b4660a93a9
+
+
+
+
+
