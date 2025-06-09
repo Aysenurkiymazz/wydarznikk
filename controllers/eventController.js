@@ -3,14 +3,14 @@ const Guest = require('../models/guest');
 const Comment = require('../models/comment');
 const User = require('../models/user');
 
-// Yardımcı: Lokasyona göre grupla
+
 const groupBy = (arr, key) =>
   arr.reduce((acc, item) => {
     (acc[item[key]] = acc[item[key]] || []).push(item);
     return acc;
   }, {});
 
-// 1. Kullanıcının oluşturduğu etkinlikleri listele
+
 exports.getEvents = async (req, res) => {
   try {
     const events = await Event.find({ userId: req.session.userId });

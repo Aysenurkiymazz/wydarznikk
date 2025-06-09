@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('DB Error:', err));
 
-// Orta katmanlar
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -48,11 +48,11 @@ function isAuthenticated(req, res, next) {
   res.redirect('/login');
 }
 
-// Yönlendirmeler
+
 app.use('/', authRoutes);
 app.use('/events', isAuthenticated, eventRoutes);
 
-// Giriş yapan kullanıcılar doğrudan etkinlik sayfasına yönlendirilir
+
 app.get('/', (req, res) => {
   if (!req.session.userId) {
     res.render('home');
