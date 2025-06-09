@@ -153,6 +153,34 @@ Dzięki temu dane są bezpieczne i nie znajdują się w repozytorium.
 Projekt edukacyjny, stworzony w ramach zaliczenia z Node.js.
 Nie do użytku komercyjnego. Autor: Imię i nazwisko / GitHub login
 
+## 📸 Zrzuty ekranu aplikacji
+
+### 🏠 Strona główna
+![Strona główna](screenshots/home.png)
+
+### 🔐 Strona logowania
+![Logowanie](screenshots/login.png)
+
+### 📝 Strona rejestracji
+![Rejestracja](screenshots/register.png)
+
+### 🧾 Lista wydarzeń
+![Lista wydarzeń](screenshots/events.png)
+
+### ➕ Tworzenie / Edycja wydarzeń
+![Edycja wydarzeń](screenshots/editevents.png)
+
+### 🔍 Filtrowanie wydarzeń
+![Filtrowanie](screenshots/filter.png)
+
+### 🌙 Tryb ciemny
+![Tryb ciemny](screenshots/darkmode.png)
+
+### 📋 Szczegóły wydarzenia
+![Szczegóły](screenshots/detales.png)
+
+### 📆 Moje wydarzenia
+![Moje wydarzenia](screenshots/myevents.png)
 
 
 
