@@ -182,6 +182,20 @@ Nie do użytku komercyjnego. Autor: Imię i nazwisko / GitHub login
 ### 📆 Moje wydarzenia
 ![Moje wydarzenia](screenshots/myevents.png)
 
+---
+
+### 🗺️ Wydarzenia według miast
+
+#### 📍 Kraków
+![Kraków](screenshots/krakow.png)
+
+#### 📍 Wrocław
+![Wrocław](screenshots/wroclaw.png)
+
+#### 📍 Warszawa
+![Warszawa](screenshots/warsaw.png)
+
+
 
 
 
