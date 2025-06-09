@@ -1,25 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create New Event</title>
+  <title>Nowe wydarzenie</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Create New Event</h1>
-  <form action="/events" method="POST">
-    <label for="name">Event Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br>
-    <label for="date">Event Date:</label>
-    <input type="date" id="date" name="date" required>
-    <br>
-    <label for="guestList">Guest List (comma-separated):</label>
-    <textarea id="guestList" name="guestList"></textarea>
-    <br>
-    <button type="submit">Create Event</button>
-  </form>
-  <a href="/events">Back to Events</a>
+
+  <!-- Ortak navbar -->
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <h2>Utwórz nowe wydarzenie</h2>
+
+    <form action="/events" method="POST">
+      <label for="name">Nazwa wydarzenia:</label>
+      <input type="text" id="name" name="name" required placeholder="np. Hackathon 2025" />
+
+      <label for="date">Data wydarzenia:</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="location">Miejsce:</label>
+      <input type="text" id="location" name="location" placeholder="np. Warszawa" required />
+
+      <label for="imageUrl">Link do zdjęcia (opcjonalnie):</label>
+      <input type="url" id="imageUrl" name="imageUrl" placeholder="https://..." />
+
+      <label for="guestList">Lista gości (oddzielona przecinkami):</label>
+      <textarea id="guestList" name="guestList" rows="3" placeholder="jan.kowalski, anna.nowak"></textarea>
+
+      <button type="submit" class="primary-button">➕ Dodaj wydarzenie</button>
+    </form>
+
+    <p style="margin-top: 20px;">
+      <a href="/events">← Wróć do wydarzeń</a>
+    </p>
+  </div>
+
 </body>
 </html>
+
+

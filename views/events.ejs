@@ -1,32 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Events</title>
+  <title>Wydarznik | Twoje Wydarzenia</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Events</h1>
-  <ul>
-    <% events.forEach(event => { %>
-      <li>
-        <%= event.name %> on 
-        <% if (event.date) { %>
-          <%= new Date(event.date).toDateString() %>
-          <li>Guest List</li>
-          <li><%= event.guestList %></li>
-        <% } else { %>
-          <span>No date specified</span>
-        <% } %>
-        <a href="/events/edit/<%= event._id %>">Edit</a>
-        <a href="/events/delete/<%= event._id %>">Delete</a> <!-- Delete link -->
-      </li>
-    <% }) %>
-  </ul>
-  <a href="/events/new">Add New Event</a>
-  <form action="/logout" method="POST">
-    <button type="submit">Logout</button>
-  </form>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div>
+      <h1>Witamy na stronie wydarzeń!</h1>
+    </div>
+  </div>
+
+  <!-- Container -->
+  <div class="container">
+    <h2>👋 Witamy, <%= userName || 'Użytkowniku' %>!</h2>
+    <h1 class="section-title">Twoje Wydarzenia</h1>
+
+    <% if (events.length === 0) { %>
+      <div class="empty-state">
+        <img src="/images/empty-calendar.png" alt="Brak wydarzeń" class="empty-icon">
+        <p>Nie masz jeszcze żadnych wydarzeń.</p>
+      </div>
+    <% } else { %>
+      <% events.forEach(event => { %>
+        <div class="card">
+          <div class="card-icon">
+            <img src="/images/calendar-icon.png" alt="Ikona wydarzenia">
+          </div>
+          <div class="card-content">
+            <h3><%= event.name %></h3>
+            <p>📅 Data: <%= new Date(event.date).toISOString().slice(0, 10) %></p>
+            <p>📍 Lokalizacja: <%= event.location %></p>
+            <p>👥 Goście: <%= event.guestList.join(', ') || 'Brak' %></p>
+            <div class="card-actions">
+              <a href="/events/edit/<%= event._id %>" class="action-button">✏️ Edytuj</a>
+              <a href="/events/delete/<%= event._id %>" class="action-button">🗑️ Usuń</a>
+              <a href="/events/<%= event._id %>" class="action-button">🔍 Detale</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+
+    <!-- Add Event & Dark Mode -->
+    <div style="margin-top: 30px; text-align: center;">
+      <a href="/events/new"><button class="primary-button">➕ Dodaj</button></a>
+      <button id="toggle-theme" class="secondary-button" style="margin-left: 10px;">🌙 Dark Mode</button>
+    </div>
+
+    <!-- Suggested Events by City -->
+    <% if (groupedSuggestions && Object.keys(groupedSuggestions).length > 0) { %>
+      <% for (const [city, suggestions] of Object.entries(groupedSuggestions)) { %>
+        <div style="margin-top: 60px;">
+          <h2>📍 Events in <%= city %></h2>
+          <div class="event-grid">
+            <% suggestions.forEach(suggestion => { %>
+              <div class="event-card">
+                <img src="<%= suggestion.imageUrl %>" alt="<%= suggestion.name %>" style="width: 100%; height: 140px; object-fit: cover; border-radius: 8px 8px 0 0;">
+                <div class="event-info">
+                  <h4><%= suggestion.name %></h4>
+                  <p>📅 <%= suggestion.date %></p>
+                  <p>📍 <%= suggestion.location %></p>
+                  <form action="/events/copy" method="POST">
+                    <input type="hidden" name="name" value="<%= suggestion.name %>">
+                    <input type="hidden" name="date" value="<%= suggestion.date %>">
+                    <input type="hidden" name="location" value="<%= suggestion.location %>">
+                    <input type="hidden" name="imageUrl" value="<%= suggestion.imageUrl %>">
+                    <button type="submit" class="secondary-button">Dodaj do moich</button>
+                  </form>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      <% } %>
+    <% } %>
+
+    <!-- Logout -->
+    <form action="/logout" method="POST" style="margin-top: 40px; text-align: center;">
+      <button type="submit" class="secondary-button">🚪 Wyloguj się</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <%= new Date().getFullYear() %> Wydarznik. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    document.getElementById("toggle-theme").onclick = () => {
+      document.body.classList.toggle("dark");
+    };
+  </script>
+
 </body>
 </html>

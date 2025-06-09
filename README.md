@@ -1,130 +1,157 @@
-System organizacji wydarzeń 
+🎉 Wydarznik - System Organizacji Wydarzeń
 
-1. Opis projektu:
+Witamy w Wydarzniku — intuicyjnej aplikacji internetowej, która umożliwi Ci tworzenie, zarządzanie i uczestniczenie w wydarzeniach w Twojej okolicy.
 
-Projekt System organizacji i  wydarzeń  ma na celu stworzenie platformy, która pozwala użytkownikom przeglądać wydarzenia, tworzyć, edytować i usuwać nowe wydarzenia, a także listę gości, która pokazuje, kto może uczestniczyć w wydarzeniach. 
+📖 Spis treści
 
-*Funkcje
--Tworzenie nowych wydarzeń
+Opis projektu
 
--Edycja szczegółów wydarzenia
+Funkcjonalności
 
--Zapraszanie gości
+Zrzuty ekranu
 
--Monitorowanie postępu wydarzenia
+Technologie
 
--Usuwanie organizacji zdarzeń
+Instalacja i uruchomienie
 
-2. Rejestracja i autoryzacja:
+Struktura projektu
 
-Nowi użytkownicy będą mogli założyć konto,Zalogowani użytkownicy będą również mogli tworzyć wydarzenia i organizacje, dodawać daty, listy gości, edytować i usuwać je, wprowadzając swoje dane.
+Plik .env
 
-3.Dodaj nową organizację i wydarzenie:
+Dodatkowe funkcje
 
-Zarejestrowani użytkownicy mogą dodać nowe wydarzenie i organizację.Dodawanie organizacji i wydarzenia, nazwy wydarzenia, daty wydarzenia i listy gości.
+Komentarze i sesje
 
-4.Edytować i usuwać organizacje i wydarzenia :
+Licencja
 
-Zarejestrowani użytkownicy będą mogli modyfikować i usuwać zaplanowane wydarzenia.Zmieniać, aktualizować i całkowicie usuwać dane organizacji i wydarzeń.
+🔍 Opis projektu
 
-5.Przeglądanie wydarzeń i organizacji :
+Wydarznik to system wspierający organizację wydarzeń towarzyskich, kulturalnych lub edukacyjnych. Każdy zalogowany użytkownik może tworzyć wydarzenia, zapraszać gości, filtrować eventy oraz do nich dołączać.
 
-Przeglądać wydarzenia i organizacje, użytkownicy będą mogli przeglądać zaplanowane wydarzenia.
+🌐 Funkcjonalności
 
-W skrócie System i  organizacji wydarzeń pozwala użytkownikom tworzyć, usuwać, zarządzać i monitorować różne wydarzenia. Użytkownicy mogą zapraszać gości i śledzić ich udział.
+✅ Rejestracja i logowanie
 
-6.Użyte technologie:
+✅ Tworzenie nowych wydarzeń (nazwa, data, lokalizacja, obrazek)
 
-app.js
+✅ Lista gości i dodawanie uczestników
 
-Jest to główny punkt wejścia aplikacji. Konfiguruje serwer Express, łączy się z bazą danych MongoDB za pomocą Mongoose.
+✅ Edycja i usuwanie wydarzeń
 
-user.js
+✅ Filtrowanie po mieście, dacie i weekendach
 
-Definiuje schemat danych użytkownika w MongoDB przy użyciu Mongoose. 
+✅ Sugestie wydarzeń dla Warszawy, Krakowa i Wrocławia
 
-event.js
+✅ Tryb ciemny (Dark Mode)
 
-Definiuje schemat danych zdarzeń w MongoDB przy użyciu Mongoose. 
+✅ Interfejs responsywny i przyjazny użytkownikowi
 
-authController.js
+📷 Zrzuty ekranu
 
-Zawiera logikę uwierzytelniania i autoryzacji użytkowników.
+W aplikacji można zobaczyć m.in.:
 
-/eventController.js
+Stronę główną z hero sekcją
 
-Zawiera logikę zarządzania zdarzeniami.
+Ekran logowania i rejestracji
 
-authRoutes.js
+Widok listy wydarzeń
 
-Definiuje trasy związane z uwierzytelnianiem użytkowników (logowanie, rejestracja, wylogowanie).
+Karty wydarzeń z akcjami: edytuj, usuń, detale
 
-routes/eventRoutes.js
+Formularz tworzenia nowego wydarzenia
 
-Definiuje trasy związane z zarządzaniem zdarzeniami (przeglądanie, tworzenie, aktualizacja, usuwanie zdarzeń).
+Sekcję sugestii z gotowymi eventami z miast
 
-login.ejs
+Wersję ciemnego motywu (dark mode)
 
-Szablon EJS dla strony logowania.
+🤖 Technologie
 
-views/register.ejs
+Projekt korzysta z następujących narzędzi:
 
-Szablon EJS dla strony rejestracji. 
+Node.js + Express (serwer aplikacji)
 
-views/events.ejs
+MongoDB + Mongoose (baza danych i ORM)
 
-Szablon EJS dla strony wydarzeń.
+EJS (renderowanie widoków po stronie serwera)
 
-views/editEvent.ejs
+CSS (ręczne stylowanie)
 
-Szablon EJS do edycji istniejącego wydarzenia.
+Express-session (sesje użytkownika)
 
-views/newEvent.ejs
+Helmet (zabezpieczenia HTTP)
 
-Szablon EJS do tworzenia nowego wydarzenia.
+Dotenv (zmienne środowiskowe)
 
-public/css/styles.css
+⚖️ Instalacja i uruchomienie
 
-(Opcjonalnie) Plik CSS do stylizacji szablonów EJS.
+1. Klonowanie repozytorium:
 
-package.json
+git clone https://github.com/twoj-login/wydarznik.git
+cd wydarznik
 
-Ten plik zawiera metadane dotyczące projektu oraz listę zależności i skryptów projektu.
+2. Instalacja zależności:
 
-package-lock.json
+npm install
 
-Ten plik jest automatycznie generowany przez npm i zawiera dokładne wersje zainstalowanych zależności
+3. Konfiguracja bazy danych:
 
-Instalacja :
+Upewnij się, że MongoDB jest zainstalowany i uruchomiony lokalnie lub masz link do MongoDB Atlas.
 
-Sklonuj repozytorium:
+4. Utwórz plik .env:
 
--git clone
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/wydarznik
+SESSION_SECRET=jakisSekretnyKod
 
-WAŻNE
+5. Uruchomienie aplikacji:
 
-Po sklonowaniu, aby uruchomić ten projekt należy zainstalować:
+npm start
 
--Pobieranie MongoDB https://www.mongodb.com/try/download/community i zainstaluj go.
+Aplikacja będzie działać pod adresem:
 
-*Aby uruchomić aplikację, należy zainstalować dodatkowe paczki:
-
--npm init -y
-
--npm install express mongoose body-parser express-session helmet bcrypt ejs
-
--npm install --save-dev nodemon
-
-*Po zainstalowaniu paczek, uruchom aplikację za pomocą polecenia:
-
--npm start
-
-Aplikacja będzie dostępna pod adresem :
 http://localhost:3000
 
+📋 Struktura projektu
 
+controllers/         // logika autoryzacji i wydarzeń
+models/              // schematy Mongoose
+routes/              // ścieżki routingu
+views/               // szablony EJS
+public/css/          // style aplikacji
+public/images/       // zasoby graficzne
+.env                 // zmienne środowiskowe
+app.js               // główny plik serwera
 
-https://github.com/Aysenurkiymaz/System-Organizacji-Wydarze-poprawka-/assets/147588960/c0d2bff2-9837-4416-93e9-60b4660a93a9
+📁 Plik .env
+
+Przykładowa konfiguracja:
+
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/wydarznik
+SESSION_SECRET=jakisSekretnyKod
+
+Dzięki temu dane są bezpieczne i nie znajdują się w repozytorium.
+
+🔮 Dodatkowe funkcje
+
+🌜 Tryb ciemny – przełącznik motywu jasnego i ciemnego
+
+📱 Wersja mobilna – pełna responsywność
+
+❌ Obsługa braku danych (empty states)
+
+🔎 Sugestie wydarzeń na podstawie miasta
+
+🗨️ Komentarze i sesje
+
+📝 Użytkownicy mogą dodawać komentarze do wydarzeń — tworząc interaktywną przestrzeń do komunikacji.
+
+🔐 Dane logowania użytkowników są bezpiecznie przechowywane w sesjach, co pozwala na zachowanie stanu logowania przez cały czas trwania sesji.
+
+📄 Licencja
+
+Projekt edukacyjny, stworzony w ramach zaliczenia z Node.js.
+Nie do użytku komercyjnego. Autor: Imię i nazwisko / GitHub login
 
 
 

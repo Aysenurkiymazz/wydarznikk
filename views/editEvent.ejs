@@ -1,25 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Event</title>
+  <title>Edytuj wydarzenie</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Edit Event</h1>
-  <form action="/events/update/<%= event._id %>" method="POST">
-    <label for="name">Event Name:</label>
-    <input type="text" id="name" name="name" value="<%= event.name %>" required>
-    <br>
-    <label for="date">Event Date:</label>
-    <input type="date" id="date" name="date" value="<%= event.date ? new Date(event.date).toISOString().substr(0, 10) : '' %>" required>
-    <br>
-    <label for="guestList">Guest List (comma-separated):</label>
-    <textarea id="guestList" name="guestList"><%= event.guestList.join(',') %></textarea>
-    <br>
-    <button type="submit">Update Event</button>
-  </form>
-  <a href="/events">Back to Events</a>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <!-- Hero başlık -->
+  <div class="hero">
+    <div>
+      <h1>✏️ Edytuj wydarzenie</h1>
+      <p>Zaktualizuj informacje o swoim wydarzeniu</p>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="container">
+    <form action="/events/update/<%= event._id %>" method="POST">
+      <label for="name">📛 Nazwa wydarzenia:</label>
+      <input type="text" id="name" name="name" value="<%= event.name %>" required>
+
+      <label for="date">📅 Data wydarzenia:</label>
+      <input type="date" id="date" name="date" value="<%= event.date ? new Date(event.date).toISOString().substr(0, 10) : '' %>" required>
+
+      <label for="guestList">👥 Lista gości (oddziel przecinkami):</label>
+      <textarea id="guestList" name="guestList" rows="3" placeholder="jan.kowalski,anna.nowak"><%= event.guestList.join(',') %></textarea>
+
+      <label for="location">📍 Lokalizacja:</label>
+      <input type="text" id="location" name="location" value="<%= event.location || '' %>" required>
+
+      <label for="imageUrl">🖼️ Link do zdjęcia (opcjonalnie):</label>
+      <input type="url" id="imageUrl" name="imageUrl" value="<%= event.imageUrl || '' %>">
+
+      <button type="submit" class="primary-button">💾 Zapisz zmiany</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 20px;">
+      <a href="/events">← Powrót do wydarzeń</a>
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <%= new Date().getFullYear() %> Eventify. Wszystkie prawa zastrzeżone.</p>
+  </footer>
+
 </body>
 </html>

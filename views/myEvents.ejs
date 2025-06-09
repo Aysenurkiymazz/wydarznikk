@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Moje wydarzenia</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div>
+      <h1>Twoje dołączone wydarzenia</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Wydarzenia, w których bierzesz udział</h2>
+
+    <% if (events.length === 0) { %>
+      <div class="empty-state" style="text-align: center; margin-top: 40px;">
+        <img src="/images/empty-calendar.png" alt="Brak wydarzeń" style="width: 120px; opacity: 0.6;">
+        <p style="margin-top: 10px;">Nie bierzesz jeszcze udziału w żadnych wydarzeniach.</p>
+      </div>
+    <% } else { %>
+      <div class="event-grid">
+        <% events.forEach(event => { %>
+          <div class="event-card">
+            <img src="<%= event.imageUrl || '/images/default.jpg' %>" alt="Obraz wydarzenia">
+            <div class="event-info">
+              <h4><%= event.name %></h4>
+              <p>📅 <strong>Data:</strong> <%= new Date(event.date).toDateString() %></p>
+              <p>📍 <strong>Lokalizacja:</strong> <%= event.location %></p>
+              <a href="/events/<%= event._id %>" class="secondary-button" style="margin-top: 10px; display: inline-block;">🔍 Szczegóły</a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <%= new Date().getFullYear() %> Eventify. Wszystkie prawa zastrzeżone.</p>
+  </footer>
+
+</body>
+</html>

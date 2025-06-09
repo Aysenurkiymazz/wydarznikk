@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Witamy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .scroll-down {
+      margin-top: 30px;
+      font-size: 32px;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    .features {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .feature-item {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      width: 260px;
+    }
+    .feature-item h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Bölümü -->
+<div class="hero">
+  <div>
+    <h1>Witamy na stronie wydarzeń!</h1>
+    <p style="margin-top: 10px; color: #f3f4f6; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);">
+      Organizuj i dołącz do wydarzeń w swojej okolicy
+    </p>
+    <div style="margin-top: 30px;">
+      <a href="/login" class="primary-button">🔑 Zaloguj się</a>
+      <a href="/register" class="secondary-button" style="margin-left: 12px;">📝 Rejestracja</a>
+    </div>
+    <div class="scroll-down" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">⬇️</div>
+  </div>
+</div>
+
+  <!-- Tanıtım Bölümü -->
+  <section id="features" class="features">
+    <h2>Dlaczego warto?</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>🎯 Proste zarządzanie</h3>
+        <p>Twórz i edytuj wydarzenia w kilka sekund.</p>
+      </div>
+      <div class="feature-item">
+        <h3>👥 Dołączanie uczestników</h3>
+        <p>Zaproś znajomych jednym kliknięciem.</p>
+      </div>
+      <div class="feature-item">
+        <h3>📆 Inteligentne filtrowanie</h3>
+        <p>Znajdź wydarzenia według miasta lub daty.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; <%= new Date().getFullYear() %> System Organizacji Wydarzeń
+  </footer>
+
+</body>
+</html>

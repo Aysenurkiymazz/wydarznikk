@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>EMTG Clone - Witaj!</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <!-- HERO -->
+  <header style="background: url('/images/hero.jpg') center/cover no-repeat; color: white; padding: 100px 20px; text-align: center;">
+    <h1 style="font-size: 3rem; margin-bottom: 20px;">Wydarzenia. Szkolenia. Networking.</h1>
+    <p style="font-size: 1.2rem;">Dołącz do profesjonalistów z branży eventowej. Zarządzaj wydarzeniami, rozwijaj się.</p>
+    <div style="margin-top: 30px;">
+      <a href="/register"><button class="primary-button">Zarejestruj się</button></a>
+      <a href="/events"><button class="secondary-button">Zobacz wydarzenia</button></a>
+    </div>
+  </header>
+
+  <!-- O NAS -->
+  <section class="container">
+    <h2>Kim jesteśmy?</h2>
+    <p>
+      Jesteśmy platformą dla pasjonatów organizacji wydarzeń. Naszym celem jest wspierać Cię w tworzeniu, promocji i zarządzaniu eventami — od kameralnych warsztatów po duże konferencje.
+    </p>
+  </section>
+
+  <!-- NAJBLIŻSZE WYDARZENIA -->
+  <section class="container">
+    <h2>Nadchodzące wydarzenia</h2>
+
+    <% if (events && events.length > 0) { %>
+      <div class="event-grid">
+        <% events.slice(0, 3).forEach(event => { %>
+          <div class="event-card">
+            <img src="<%= event.imageUrl %>" alt="Event Image">
+            <div class="event-info">
+              <h3><%= event.name %></h3>
+              <p><strong>Data:</strong> <%= new Date(event.date).toDateString() %></p>
+              <p><strong>Miejsce:</strong> <%= event.location %></p>
+              <a href="/events/<%= event._id %>" class="secondary-button" style="margin-top: 10px;">Szczegóły</a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p>Brak dostępnych wydarzeń.</p>
+    <% } %>
+  </section>
+
+  <footer style="text-align: center; padding: 20px; font-size: 0.9rem; color: #6b7280;">
+    © <%= new Date().getFullYear() %> TwojaPlatforma.pl — Wszelkie prawa zastrzeżone.
+  </footer>
+
+</body>
+</html>

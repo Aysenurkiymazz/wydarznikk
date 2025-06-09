@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Filtruj wydarzenia</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Ortak navbar -->
+  <%- include('partials/navbar') %>
+
+  <!-- Hero başlık -->
+  <div class="hero">
+    <div>
+      <h1>Znajdź idealne wydarzenie</h1>
+      <p>Filtruj po lokalizacji, dacie lub tylko weekendowych wydarzeniach</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">🔎 Filtruj wydarzenia</h2>
+
+    <!-- Filtr Formu -->
+    <form class="filter-form" method="GET" action="/events/filter">
+      <label for="location">Miasto:</label>
+      <select name="location" id="location">
+        <option value="">-- wszystkie --</option>
+        <option value="Kraków">Kraków</option>
+        <option value="Warszawa">Warszawa</option>
+        <option value="Wrocław">Wrocław</option>
+      </select>
+
+      <label for="afterDate">Po dacie:</label>
+      <input type="date" name="afterDate" id="afterDate">
+
+      <label class="checkbox-label">
+        <input type="checkbox" name="weekendOnly" value="true"> Tylko weekendowe
+      </label>
+
+      <button class="primary-button" type="submit">🎯 Filtruj</button>
+    </form>
+
+    <!-- Sonuçlar -->
+    <% if (events && events.length > 0) { %>
+      <h3 style="margin-top: 40px;">🎉 Znaleziono <%= events.length %> wydarzeń:</h3>
+      <div class="event-grid">
+        <% events.forEach(event => { %>
+          <div class="event-card">
+            <img src="<%= event.imageUrl || '/images/default.jpg' %>" alt="Obraz wydarzenia">
+            <div class="event-info">
+              <h4><%= event.name %></h4>
+              <p>📅 <%= new Date(event.date).toDateString() %></p>
+              <p>📍 <%= event.location %></p>
+              <form method="POST" action="/events/<%= event._id %>/dolacz">
+                <button class="secondary-button">➕ Dołącz</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } else if (events) { %>
+      <div class="empty-state" style="margin-top: 40px; text-align: center;">
+        <img src="/images/no-results.png" alt="Brak wyników" style="width: 100px; opacity: 0.6;">
+        <p style="margin-top: 10px;">Brak pasujących wydarzeń.</p>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <%= new Date().getFullYear() %> Eventify. Wszystkie prawa zastrzeżone.</p>
+  </footer>
+
+</body>
+</html>

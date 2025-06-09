@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Zaloguj się</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-  <h1>Login</h1>
-  <form action="/login" method="POST">
-    <% if (error) { %>
-      <p><%= error %></p>
-    <% } %>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <br>
-    <button type="submit">Login</button>
-  </form>
-  <a href="/register">Register</a>
+<body class="bg-gray">
+
+  <!-- Navbar kaldırıldı -->
+
+  <!-- Login Form Container -->
+  <div class="container">
+    <h2>Zaloguj się</h2>
+
+    <form action="/login" method="POST">
+      <% if (error) { %>
+        <p class="error-message"><%= error %></p>
+      <% } %>
+
+      <label for="username">Nazwa użytkownika:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        required
+        minlength="3"
+        maxlength="20"
+        placeholder="Wprowadź nazwę użytkownika"
+      />
+
+      <label for="password">Hasło:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        minlength="6"
+        placeholder="Wprowadź hasło"
+      />
+
+      <button type="submit" class="primary-button">🔐 Zaloguj się</button>
+
+      <p style="text-align: center; margin-top: 20px;">
+        Nie masz konta? <a href="/register">Zarejestruj się</a>
+      </p>
+    </form>
+  </div>
+
 </body>
 </html>

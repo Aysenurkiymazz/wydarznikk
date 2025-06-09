@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+  <title>Rejestracja</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-  <h1>Register</h1>
-  <form action="/register" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <br>
-    <button type="submit">Register</button>
-  </form>
-  <a href="/login">Back to Login</a>
+<body class="bg-gray">
+
+  <!-- Navbar kaldırıldı -->
+
+  <div class="container">
+    <h2>Utwórz konto</h2>
+
+    <form action="/register" method="POST">
+      <% if (error) { %>
+        <p class="error-message"><%= error %></p>
+      <% } %>
+
+      <label for="username">Nazwa użytkownika:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        required
+        minlength="3"
+        maxlength="20"
+        placeholder="np. jan.kowalski"
+      />
+
+      <label for="password">Hasło:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        minlength="6"
+        placeholder="Min. 6 znaków"
+      />
+
+      <button type="submit" class="primary-button">📝 Zarejestruj się</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 20px;">
+      Masz już konto? <a href="/login">Zaloguj się</a>
+    </p>
+  </div>
+
 </body>
 </html>

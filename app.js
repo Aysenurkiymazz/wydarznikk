@@ -1,3 +1,5 @@
+require('dotenv').config(); // ⬅ ENV DEĞERLERİ KULLANILACAK
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -9,60 +11,56 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/events', {
+// 🌱 MongoDB bağlantısı
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch(err => {
-    console.error('Failed to connect to MongoDB', err);
-  });
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('DB Error:', err));
 
+// Orta katmanlar
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Helmet for CSP headers
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      imgSrc: ["'self'", "data:"],
+      imgSrc: ["'self'", "data:", "blob:"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
       styleSrc: ["'self'", "'unsafe-inline'"]
     }
   }
 }));
 
-// Session setup
+// 🎯 Session - güvenli hale getirildi
 app.use(session({
-  secret: 'your_secret_key',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // Set to true in production
+  cookie: { secure: false }
 }));
 
-// Middleware to check authentication
 function isAuthenticated(req, res, next) {
-  if (req.session.userId) {
-    next();
-  } else {
-    res.redirect('/login');
-  }
+  if (req.session.userId) return next();
+  res.redirect('/login');
 }
 
-// Redirect root to login
+// Yönlendirmeler
+app.use('/', authRoutes);
+app.use('/events', isAuthenticated, eventRoutes);
+
+// Giriş yapan kullanıcılar doğrudan etkinlik sayfasına yönlendirilir
 app.get('/', (req, res) => {
-  res.redirect('/login');
+  if (!req.session.userId) {
+    res.render('home');
+  } else {
+    res.redirect('/events');
+  }
 });
 
-// Routes
-app.use('/events', isAuthenticated, eventRoutes);
-app.use('/', authRoutes);
-
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+  console.log('Server running on http://localhost:3000');
 });

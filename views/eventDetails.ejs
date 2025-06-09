@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title><%= event.name %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+
+    <!-- Etkinlik Bilgisi -->
+    <div class="event-card">
+      <% if (event.imageUrl) { %>
+        <img src="<%= event.imageUrl %>" alt="Obraz wydarzenia">
+      <% } %>
+
+      <div class="event-info">
+        <h2><%= event.name %></h2>
+        <p>📅 <strong>Data:</strong> <%= event.date.toDateString() %></p>
+        <p>📍 <strong>Lokalizacja:</strong> <%= event.location %></p>
+
+        <% if (guests.length > 0) { %>
+          <p>👥 <strong>Uczestnicy:</strong></p>
+          <ul>
+            <% guests.forEach(guest => { %>
+              <li><%= guest.userName %></li>
+            <% }) %>
+          </ul>
+        <% } else { %>
+          <p><em>Brak zapisanych uczestników.</em></p>
+        <% } %>
+
+        <!-- Katıl Butonu -->
+        <form method="POST" action="/events/<%= event._id %>/dolacz" style="margin-top: 20px;">
+          <button class="secondary-button">➕ Dołącz do wydarzenia</button>
+        </form>
+
+        <p style="margin-top: 20px;">
+          <a href="/events">← Wróć do wydarzeń</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Yorumlar -->
+    <div style="margin-top: 40px;">
+      <h3>Komentarze</h3>
+
+      <% if (event.comments && event.comments.length > 0) { %>
+        <ul style="padding-left: 0;">
+          <% event.comments.forEach(comment => { %>
+            <li style="margin-bottom: 16px; background: #f9fafb; padding: 12px 16px; border-radius: 8px; list-style: none;">
+              <strong><%= comment.userId.username %></strong> napisał:
+              <p style="margin: 6px 0;"><%= comment.content %></p>
+              <small style="color: #6b7280;"><%= new Date(comment.createdAt).toLocaleString() %></small>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>Brak komentarzy.</p>
+      <% } %>
+
+      <!-- Yorum Ekle -->
+      <form method="POST" action="/events/<%= event._id %>/comments" style="margin-top: 30px;">
+        <label for="content">Dodaj komentarz:</label>
+        <textarea name="content" id="content" required placeholder="Napisz coś..." rows="3" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d1d5db; background-color: #f9fafb;"></textarea>
+        <button type="submit" class="primary-button" style="margin-top: 10px;">💬 Dodaj komentarz</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <%= new Date().getFullYear() %> Eventify. Wszystkie prawa zastrzeżone.</p>
+  </footer>
+
+</body>
+</html>
