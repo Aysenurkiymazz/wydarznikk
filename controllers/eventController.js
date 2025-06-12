@@ -53,20 +53,29 @@ exports.getEvents = async (req, res) => {
 exports.createEvent = async (req, res) => {
   try {
     const { name, date, guestList, imageUrl, location } = req.body;
+
+    const user = await User.findById(req.session.userId);
+
+    const guests = guestList
+      ? guestList.split(',').map(g => g.trim())
+      : [user.username.toLowerCase()]; // kullanıcı adı otomatik ekleniyor
+
     const event = new Event({
       name,
       date,
-      guestList: guestList.split(','),
+      guestList: guests,
       userId: req.session.userId,
       imageUrl,
       location
     });
+
     await event.save();
     res.redirect('/events');
   } catch (err) {
     res.status(500).send(err);
   }
 };
+
 
 exports.showCreateForm = (req, res) => {
   res.render('newEvent');

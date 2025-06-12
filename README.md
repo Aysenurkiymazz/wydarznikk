@@ -1,159 +1,43 @@
-🎉 Wydarznik - System Organizacji Wydarzeń
+# 🎉 Wydarznik - System Organizacji Wydarzeń
 
-Witamy w Wydarzniku — intuicyjnej aplikacji internetowej, która umożliwi Ci tworzenie, zarządzanie i uczestniczenie w wydarzeniach w Twojej okolicy.
+Witamy w **Wydarzniku** — intuicyjnej aplikacji internetowej, która umożliwia tworzenie, zarządzanie i uczestniczenie w wydarzeniach w Twojej okolicy.
 
-📖 Spis treści
+---
 
-Opis projektu
+## 📖 Spis treści
 
-Funkcjonalności
+- [Opis projektu](#opis-projektu)
+- [Funkcjonalności](#funkcjonalności)
+- [Zrzuty ekranu](#zrzuty-ekranu)
+- [Technologie](#technologie)
+- [Instalacja i uruchomienie](#instalacja-i-uruchomienie)
+- [Struktura projektu](#struktura-projektu)
+- [Plik .env](#plik-env)
+- [Dodatkowe funkcje](#dodatkowe-funkcje)
+- [Licencja](#licencja)
 
-Zrzuty ekranu
+---
 
-Technologie
+## 🔍 Opis projektu
 
-Instalacja i uruchomienie
+**Wydarznik** to system wspierający organizację wydarzeń towarzyskich, kulturalnych lub edukacyjnych. Każdy zalogowany użytkownik może tworzyć wydarzenia, zapraszać gości, filtrować eventy oraz do nich dołączać.
 
-Struktura projektu
+---
 
-Plik .env
+## 🌐 Funkcjonalności
 
-Dodatkowe funkcje
+- ✅ Rejestracja i logowanie
+- ✅ Tworzenie wydarzeń (nazwa, data, lokalizacja, obrazek)
+- ✅ Lista gości i dodawanie uczestników
+- ✅ Edycja i usuwanie wydarzeń
+- ✅ Filtrowanie po mieście, dacie i weekendach
+- ✅ Sugestie wydarzeń: Warszawa, Kraków, Wrocław
+- ✅ Tryb ciemny (Dark Mode)
+- ✅ Interfejs responsywny i przyjazny użytkownikowi
 
-Komentarze i sesje
+---
 
-Licencja
-
-🔍 Opis projektu
-
-Wydarznik to system wspierający organizację wydarzeń towarzyskich, kulturalnych lub edukacyjnych. Każdy zalogowany użytkownik może tworzyć wydarzenia, zapraszać gości, filtrować eventy oraz do nich dołączać.
-
-🌐 Funkcjonalności
-
-✅ Rejestracja i logowanie
-
-✅ Tworzenie nowych wydarzeń (nazwa, data, lokalizacja, obrazek)
-
-✅ Lista gości i dodawanie uczestników
-
-✅ Edycja i usuwanie wydarzeń
-
-✅ Filtrowanie po mieście, dacie i weekendach
-
-✅ Sugestie wydarzeń dla Warszawy, Krakowa i Wrocławia
-
-✅ Tryb ciemny (Dark Mode)
-
-✅ Interfejs responsywny i przyjazny użytkownikowi
-
-📷 Zrzuty ekranu
-
-W aplikacji można zobaczyć m.in.:
-
-Stronę główną z hero sekcją
-
-Ekran logowania i rejestracji
-
-Widok listy wydarzeń
-
-Karty wydarzeń z akcjami: edytuj, usuń, detale
-
-Formularz tworzenia nowego wydarzenia
-
-Sekcję sugestii z gotowymi eventami z miast
-
-Wersję ciemnego motywu (dark mode)
-
-🤖 Technologie
-
-Projekt korzysta z następujących narzędzi:
-
-Node.js + Express (serwer aplikacji)
-
-MongoDB + Mongoose (baza danych i ORM)
-
-EJS (renderowanie widoków po stronie serwera)
-
-CSS (ręczne stylowanie)
-
-Express-session (sesje użytkownika)
-
-Helmet (zabezpieczenia HTTP)
-
-Dotenv (zmienne środowiskowe)
-
-⚖️ Instalacja i uruchomienie
-
-1. Klonowanie repozytorium:
-
-git clone https://github.com/twoj-login/wydarznik.git
-cd wydarznik
-
-2. Instalacja zależności:
-
-npm install
-
-3. Konfiguracja bazy danych:
-
-Upewnij się, że MongoDB jest zainstalowany i uruchomiony lokalnie lub masz link do MongoDB Atlas.
-
-4. Utwórz plik .env:
-
-PORT=3000
-MONGO_URI=mongodb://localhost:27017/wydarznik
-SESSION_SECRET=jakisSekretnyKod
-
-5. Uruchomienie aplikacji:
-
-npm start
-
-Aplikacja będzie działać pod adresem:
-
-http://localhost:3000
-
-📋 Struktura projektu
-
-controllers/         // logika autoryzacji i wydarzeń
-models/              // schematy Mongoose
-routes/              // ścieżki routingu
-views/               // szablony EJS
-public/css/          // style aplikacji
-public/images/       // zasoby graficzne
-.env                 // zmienne środowiskowe
-app.js               // główny plik serwera
-
-📁 Plik .env
-
-Przykładowa konfiguracja:
-
-PORT=3000
-MONGO_URI=mongodb://localhost:27017/wydarznik
-SESSION_SECRET=jakisSekretnyKod
-
-Dzięki temu dane są bezpieczne i nie znajdują się w repozytorium.
-
-🔮 Dodatkowe funkcje
-
-🌜 Tryb ciemny – przełącznik motywu jasnego i ciemnego
-
-📱 Wersja mobilna – pełna responsywność
-
-❌ Obsługa braku danych (empty states)
-
-🔎 Sugestie wydarzeń na podstawie miasta
-
-🗨️ Komentarze i sesje
-
-📝 Użytkownicy mogą dodawać komentarze do wydarzeń — tworząc interaktywną przestrzeń do komunikacji.
-
-🔐 Dane logowania użytkowników są bezpiecznie przechowywane w sesjach, co pozwala na zachowanie stanu logowania przez cały czas trwania sesji.
-
-📄 Licencja
-
-Projekt edukacyjny, stworzony w ramach zaliczenia z Node.js.
-Nie do użytku komercyjnego. Autor: Imię i nazwisko / GitHub login
-
-## 📸 Zrzuty ekranu aplikacji
+## 📷 Zrzuty ekranu
 
 ### 🏠 Strona główna
 ![Strona główna](screenshots/home.png)
@@ -161,7 +45,7 @@ Nie do użytku komercyjnego. Autor: Imię i nazwisko / GitHub login
 ### 🔐 Strona logowania
 ![Logowanie](screenshots/login.png)
 
-### 📝 Strona rejestracji
+### 📝 Rejestracja
 ![Rejestracja](screenshots/register.png)
 
 ### 🧾 Lista wydarzeń
@@ -184,16 +68,83 @@ Nie do użytku komercyjnego. Autor: Imię i nazwisko / GitHub login
 
 ---
 
-### 🗺️ Wydarzenia według miast
+## 🗺️ Wydarzenia według miast
 
-#### 📍 Kraków
+### 📍 Kraków
 ![Kraków](screenshots/krakow.png)
 
-#### 📍 Wrocław
+### 📍 Wrocław
 ![Wrocław](screenshots/wroclaw.png)
 
-#### 📍 Warszawa
+### 📍 Warszawa
 ![Warszawa](screenshots/warsaw.png)
+
+---
+
+## 🤖 Technologie
+
+- Node.js + Express
+- MongoDB + Mongoose
+- EJS (serwerowe szablony)
+- CSS (ręczne stylowanie)
+- Express-session (sesje)
+- Helmet (zabezpieczenia HTTP)
+- Dotenv (zmienne środowiskowe)
+
+---
+
+## ⚙️ Instalacja i uruchomienie
+
+1. **Klonuj repozytorium**:
+    ```bash
+    git clone https://github.com/twoj-login/wydarznik.git
+    cd wydarznik
+    ```
+
+2. **Zainstaluj zależności**:
+    ```bash
+    npm install
+    ```
+
+3. **Skonfiguruj MongoDB** (lokalnie lub MongoDB Atlas)
+
+4. **Utwórz plik `.env`**:
+    ```env
+    PORT=3000
+    MONGO_URI=mongodb://localhost:27017/wydarznik
+    SESSION_SECRET=jakisSekretnyKod
+    ```
+
+5. **Uruchom aplikację**:
+    ```bash
+    npm start
+    ```
+
+➡️ Aplikacja dostępna będzie pod adresem:  
+**http://localhost:3000**
+
+---
+
+## 📁 Struktura projektu
+controllers/        # logika autoryzacji i wydarzeń  
+models/             # schematy Mongoose  
+routes/             # routing  
+views/              # szablony EJS  
+public/css/         # style  
+public/images/      # obrazy  
+.env                # konfiguracja środowiska  
+app.js              # główny plik aplikacji  
+
+---
+
+## 📝 Plik `.env`
+
+Przykład:
+
+```env
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/wydarznik
+SESSION_SECRET=jakisSekretnyKod  # tajny klucz sesji
 
 
 

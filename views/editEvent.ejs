@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edytuj wydarzenie</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <!-- GOOGLE PLACES API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 </head>
 <body>
 
@@ -32,7 +34,14 @@
       <textarea id="guestList" name="guestList" rows="3" placeholder="jan.kowalski,anna.nowak"><%= event.guestList.join(',') %></textarea>
 
       <label for="location">📍 Lokalizacja:</label>
-      <input type="text" id="location" name="location" value="<%= event.location || '' %>" required>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        value="<%= event.location || '' %>"
+        required
+        pattern=".{3,}"
+        title="Podaj lokalizację co najmniej 3 znaki.">
 
       <label for="imageUrl">🖼️ Link do zdjęcia (opcjonalnie):</label>
       <input type="url" id="imageUrl" name="imageUrl" value="<%= event.imageUrl || '' %>">
@@ -49,6 +58,19 @@
   <footer class="footer">
     <p>&copy; <%= new Date().getFullYear() %> Eventify. Wszystkie prawa zastrzeżone.</p>
   </footer>
+
+  <!-- Autocomplete Script -->
+  <script>
+    function initAutocomplete() {
+      const input = document.getElementById('location');
+      const autocomplete = new google.maps.places.Autocomplete(input, {
+        types: ['(cities)'],
+        componentRestrictions: { country: 'pl' } // sadece Polonya
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", initAutocomplete);
+  </script>
 
 </body>
 </html>

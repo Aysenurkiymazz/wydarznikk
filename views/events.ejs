@@ -37,7 +37,12 @@
             <h3><%= event.name %></h3>
             <p>📅 Data: <%= new Date(event.date).toISOString().slice(0, 10) %></p>
             <p>📍 Lokalizacja: <%= event.location %></p>
-            <p>👥 Goście: <%= event.guestList.join(', ') || 'Brak' %></p>
+            <p>👥 Goście: 
+  <%= event.guestList && event.guestList.length > 0 
+    ? event.guestList.join(', ') 
+    : (userName || 'Brak') %>
+</p>
+
             <div class="card-actions">
               <a href="/events/edit/<%= event._id %>" class="action-button">✏️ Edytuj</a>
               <a href="/events/delete/<%= event._id %>" class="action-button">🗑️ Usuń</a>
