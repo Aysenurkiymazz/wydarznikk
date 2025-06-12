@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edytuj wydarzenie</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- GOOGLE PLACES API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 </head>
 <body>
 
@@ -58,19 +56,7 @@
   <footer class="footer">
     <p>&copy; <%= new Date().getFullYear() %> Eventify. Wszystkie prawa zastrzeżone.</p>
   </footer>
-
-  <!-- Autocomplete Script -->
-  <script>
-    function initAutocomplete() {
-      const input = document.getElementById('location');
-      const autocomplete = new google.maps.places.Autocomplete(input, {
-        types: ['(cities)'],
-        componentRestrictions: { country: 'pl' } // sadece Polonya
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", initAutocomplete);
-  </script>
-
+  
 </body>
 </html>
+

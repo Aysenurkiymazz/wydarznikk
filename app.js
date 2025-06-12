@@ -11,7 +11,7 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-// 🌱 MongoDB bağlantısı
+
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -35,7 +35,7 @@ app.use(helmet({
   }
 }));
 
-// 🎯 Session - güvenli hale getirildi
+
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
